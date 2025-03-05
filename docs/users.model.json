@@ -1,0 +1,10 @@
+[
+    {
+        "_id" : "uuid",
+        "name" : "",
+        "days" : 0,
+        "start_date" : "iso-date",
+        "end_date" : "",
+        "_created" : ""
+    }
+]
