@@ -5,7 +5,10 @@ import UsersEntity from './users.entity';
 
 @Injectable()
 export class UsersRepository {
-  constructor(@InjectModel('users') private readonly usersModel: Model<UsersEntity>) {}
+	constructor(
+		@InjectModel('users')
+		private readonly usersModel: Model<UsersEntity>,
+	) {}
 
   async createUser(data: UsersEntity) {
     return await new this.usersModel(data).save();

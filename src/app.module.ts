@@ -4,8 +4,6 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { UsersModule } from './modules/users/users.module'
 import { GlobalModule } from './common/global/global.module'
 import { NotificationsModule } from './modules/notifications/notifications.module'
-import { UsersService } from './modules/users/users.service'
-import { UsersRepository } from './modules/users/users.repository'
 
 @Module({
 	imports: [
@@ -21,6 +19,7 @@ import { UsersRepository } from './modules/users/users.repository'
 		NotificationsModule,
 	],
 	controllers: [],
-	providers: [UsersRepository, UsersService],
+	providers: [],
 })
-export class AppModule {}
+export class AppModule {
+}
