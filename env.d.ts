@@ -4,6 +4,10 @@ declare global {
 			PORT: number
 
 			DB_URL: string
+
+			META_ID: string
+			META_SECRET: string
+			WHASTAPP_SECRET: string
 		}
 	}
 }
