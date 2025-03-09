@@ -8,6 +8,9 @@ declare global {
 			META_ID: string
 			META_SECRET: string
 			WHASTAPP_SECRET: string
+
+			RESEND_API_KEY: string
+			RESEND_EMAIL: string
 		}
 	}
 }

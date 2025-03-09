@@ -2,17 +2,20 @@ import { Injectable, NotFoundException, ConflictException } from '@nestjs/common
 import { v4 as uuidv4 } from 'uuid';
 import { UsersRepository } from './users.repository';
 import UsersEntity from './users.entity';
+import { DateService } from 'src/common/global/services/date.service';
 
 @Injectable()
 export class UsersService {
-  constructor(private readonly usersRepository: UsersRepository) {}
+  constructor(private readonly usersRepository: UsersRepository, private readonly dateService : DateService) {}
 
   async createUser(data: Partial<UsersEntity>) {
     const user: UsersEntity = {
       _id: uuidv4(),
       name: data.name,
+      phone : data.name,
+      email : data.email,
       days: data.days,
-      start_date: data.start_date,
+      start_date: this.dateService.getMongoDate(),
       end_date: data.end_date,
     };
 
@@ -30,7 +33,6 @@ export class UsersService {
 
   async findAll() {
     const users = await this.usersRepository.findAll();
-    if (!users.length) throw new NotFoundException('No users found');
     return users;
   }
 

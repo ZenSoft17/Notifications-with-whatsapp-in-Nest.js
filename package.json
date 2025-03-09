@@ -34,6 +34,7 @@
 		"moment-timezone": "^0.5.47",
 		"mongoose": "^8.12.1",
 		"reflect-metadata": "^0.2.0",
+		"resend": "^4.1.2",
 		"rxjs": "^7.8.1",
 		"uuid": "^11.1.0"
 	},

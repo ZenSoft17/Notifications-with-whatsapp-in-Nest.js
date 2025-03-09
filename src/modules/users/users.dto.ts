@@ -1,33 +1,42 @@
-import { IsString, IsInt, IsDate, IsOptional } from 'class-validator';
+import { IsString, IsInt, IsDate, IsOptional, IsEmail } from 'class-validator'
 
 export class CreateUserDto {
-  @IsString()
-  name: string;
+	@IsString()
+	name: string
 
-  @IsInt()
-  days: number;
+	@IsString()
+	phone: string
 
-  @IsDate()
-  start_date: Date;
+	@IsString()
+	@IsEmail()
+	email: string
 
-  @IsDate()
-  end_date: Date;
+	@IsInt()
+	days: number
+
+	@IsDate()
+	end_date: Date
 }
 
 export class UpdateUserDto {
-  @IsOptional()
-  @IsString()
-  name?: string;
+	@IsOptional()
+	@IsString()
+	name?: string
 
-  @IsOptional()
-  @IsInt()
-  days?: number;
+	@IsOptional()
+	@IsString()
+	phone?: string
 
-  @IsOptional()
-  @IsDate()
-  start_date?: Date;
+	@IsOptional()
+	@IsString()
+	@IsEmail()
+	email?: string
 
-  @IsOptional()
-  @IsDate()
-  end_date?: Date;
+	@IsOptional()
+	@IsInt()
+	days?: number
+
+	@IsOptional()
+	@IsDate()
+	end_date?: Date
 }
