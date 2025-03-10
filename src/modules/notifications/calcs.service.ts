@@ -7,7 +7,7 @@ import { DateService } from 'src/common/global/services/date.service'
 import { Cron, CronExpression } from '@nestjs/schedule'
 
 @Injectable()
-export class CalcsService {
+export class CalcsService  {
 	constructor(
 		private readonly notificationsEmailService: NotificationsEmailService,
 		private readonly notificationsWhatsappService: NotificationsWhatsappService,
@@ -15,7 +15,7 @@ export class CalcsService {
 		private readonly dateService: DateService
 	) {}
 
-	@Cron('*/600 * * * * *') // Ejecuta cada 10 segundos (para pruebas) @Cron(CronExpression.EVERY_DAY_AT_MIDNIGHT)
+	@Cron(CronExpression.EVERY_DAY_AT_MIDNIGHT) // @Cron('*/60 * * * * *') // Ejecuta cada 10 segundos (para pruebas) 
 	async sendNotifications() {
 		const users = await this.usersService.findAll()
 		const currentDate = new Date(
