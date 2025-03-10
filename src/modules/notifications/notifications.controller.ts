@@ -4,14 +4,22 @@ import { CalcsService } from './calcs.service'
 @Controller('notifications')
 export class NotificationsController {
 	constructor(private readonly calcsService: CalcsService) {}
+
 	@Get()
 	async send() {
 		try {
-			return await this.calcsService.sendNotifications()
+			const result = await this.calcsService.sendNotifications()
+			return {
+				message: result.message,
+				status: result.status,
+			}
 		} catch (error) {
 			throw new HttpException(
-				error.message,
-				error.status || HttpStatus.NOT_FOUND
+				{
+					message: error.response?.message || 'Error al enviar notificaciones',
+					details: error.response?.error || error.message,
+				},
+				error.status || HttpStatus.INTERNAL_SERVER_ERROR
 			)
 		}
 	}
