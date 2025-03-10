@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common'
 import axios from 'axios'
-import Message from './bodys/message'
 import MessageEntity from './entities/message.entity'
 
 @Injectable()
@@ -10,8 +9,6 @@ export class NotificationsWhatsappService {
 	private readonly accessToken = process.env.WHASTAPP_SECRET
 
 	async sendMessage(data: Partial<MessageEntity>) {
-		const mensaje = Message(data)
-
 		try {
 			const url = `${this.apiUrl}/${this.phoneNumberId}/messages`
 			const response = await axios.post(
@@ -20,7 +17,7 @@ export class NotificationsWhatsappService {
 					messaging_product: 'whatsapp',
 					to: data.to,
 					type: 'text',
-					text: { body: mensaje },
+					text: { body: data.message },
 				},
 				{
 					headers: {

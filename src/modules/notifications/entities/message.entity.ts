@@ -4,4 +4,5 @@ export default interface MessageEntity {
 	name: string
 	end_date: Date
 	days: number
+	message : string
 }

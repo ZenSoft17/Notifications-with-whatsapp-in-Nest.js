@@ -14,8 +14,8 @@ export class CreateUserDto {
 	@IsInt()
 	days: number
 
-	@IsDate()
-	end_date: Date
+	@IsString() 
+	end_date: string
 }
 
 export class UpdateUserDto {
@@ -36,7 +36,6 @@ export class UpdateUserDto {
 	@IsInt()
 	days?: number
 
-	@IsOptional()
-	@IsDate()
-	end_date?: Date
+	@IsString() 
+	end_date?: string
 }

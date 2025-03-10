@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { UsersModule } from './modules/users/users.module'
 import { GlobalModule } from './common/global/global.module'
 import { NotificationsModule } from './modules/notifications/notifications.module'
+import { ScheduleModule } from '@nestjs/schedule'
 
 @Module({
 	imports: [
@@ -17,6 +18,7 @@ import { NotificationsModule } from './modules/notifications/notifications.modul
 		UsersModule,
 		GlobalModule,
 		NotificationsModule,
+		ScheduleModule.forRoot()
 	],
 	controllers: [],
 	providers: [],

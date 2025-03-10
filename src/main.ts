@@ -16,8 +16,12 @@ async function bootstrap() {
   );
 
   await app.init();
-}
 
-bootstrap().then(() => console.log('NestJS app initialized'));
+  server.listen(3000, () => {
+    console.log('🚀 Server running on port 3000');
+  });
+}
+// vercel --prod --scope zensoft17s-projects
+bootstrap();
 
 export default server;

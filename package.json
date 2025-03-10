@@ -26,6 +26,7 @@
 		"@nestjs/core": "^10.0.0",
 		"@nestjs/mongoose": "^11.0.1",
 		"@nestjs/platform-express": "^10.4.15",
+		"@nestjs/schedule": "^5.0.1",
 		"@types/moment-timezone": "^0.5.13",
 		"axios": "^1.8.1",
 		"class-transformer": "^0.5.1",

@@ -6,4 +6,7 @@ export class DateService {
 	getMongoDate(): Date {
 		return moment.tz('America/Bogota').toDate()
 	}
+	formatToMongoDate(dateString: string): Date {
+		return moment.tz(dateString, 'YYYY-MM-DD', 'America/Bogota').toDate();
+	}
 }

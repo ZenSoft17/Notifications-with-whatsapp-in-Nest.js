@@ -1,8 +1,6 @@
 import MessageEntity from '../entities/message.entity'
-import Message from './message'
 
 export function emailBody(data: MessageEntity): string {
-	let mensaje = Message(data)
 
 	return `
     <!DOCTYPE html>
@@ -28,7 +26,7 @@ export function emailBody(data: MessageEntity): string {
                         <tr>
                             <td style="padding: 20px 0; border-top: 1px solid #eeeeee; border-bottom: 1px solid #eeeeee;">
                                 <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.5; color: #333333;">Hola <strong style="color: #000000;">${data.name}</strong>,</p>
-                                <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.5; color: #333333;">${mensaje}</p>
+                                <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.5; color: #333333;">${data.message}</p>
                                 <p style="margin: 0 0 15px 0; font-size: 16px; line-height: 1.5; color: #333333;">Para evitar <span style="color: #ff0000; font-weight: bold;">interrupciones en tu servicio</span>, te recomendamos realizar el pago lo antes posible.</p>
                             </td>
                         </tr>
